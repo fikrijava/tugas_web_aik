@@ -1,9 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400;600;700;900&family=Nunito:wght@300;400;500;600;700&display=swap');
 @import 'tailwindcss';
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 
+:root {
+  --background: #fdf8ee;
+  --foreground: #1a0e0e;
+  --card: #fff9ed;
+  --card-foreground: #1a0e0e;
+  --popover: #fff9ed;
+  --popover-foreground: #1a0e0e;
+  --primary: #3730a3;
+  --primary-foreground: #fdf8ee;
+  --secondary: #f3ede0;
+  --secondary-foreground: #1a0e0e;
+  --muted: #ede8dc;
+  --muted-foreground: #6b5c4c;
+  --accent: #b45309;
+  --accent-foreground: #fdf8ee;
+  --destructive: #d4183d;
+  --destructive-foreground: #ffffff;
+  --border: rgba(70, 50, 20, 0.15);
+  --input: transparent;
+  --ring: #b45309;
+  --radius: 0.75rem;
+  
+  /* Kids theme modifiers - default bright and warm */
+  --kids-primary: #ff8c00;
+  --kids-secondary: #ffebcd;
+  --kids-accent: #ff4500;
+}
+
+.dark {
+  --background: #0d0a1e;
+  --foreground: #f5ecd7;
+  --card: #16102e;
+  --card-foreground: #f5ecd7;
+  --popover: #16102e;
+  --popover-foreground: #f5ecd7;
+  --primary: #818cf8;
+  --primary-foreground: #0d0a1e;
+  --secondary: #1e1640;
+  --secondary-foreground: #f5ecd7;
+  --muted: #1e1640;
+  --muted-foreground: #a89e8c;
+  --accent: #f59e0b;
+  --accent-foreground: #0d0a1e;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: rgba(245, 158, 11, 0.15);
+  --input: #1e1640;
+  --ring: #f59e0b;
+  
+  /* Kids theme modifiers in dark mode */
+  --kids-primary: #fb923c;
+  --kids-secondary: #2c1a04;
+  --kids-accent: #f97316;
+}
+
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-sans: 'Nunito', ui-sans-serif, system-ui, sans-serif;
+  --font-amiri: 'Amiri', serif;
+  --font-cinzel: 'Cinzel', serif;
+  
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --animate-float: float 4s ease-in-out infinite;
+  --animate-sparkle: sparkle 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.15); }
+}
+
+/* Custom styles for Islamic Patterns */
+.bg-islamic-pattern {
+  position: relative;
+}
+.bg-islamic-pattern::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%23a78bfa' stroke-width='0.7'%3E%3Cpolygon points='40,2 78,22 78,58 40,78 2,58 2,22'/%3E%3Cpolygon points='40,14 66,28 66,52 40,66 14,52 14,28'/%3E%3Cline x1='40' y1='2' x2='40' y2='14'/%3E%3Cline x1='78' y1='22' x2='66' y2='28'/%3E%3Cline x1='78' y1='58' x2='66' y2='52'/%3E%3Cline x1='40' y1='78' x2='40' y2='66'/%3E%3Cline x1='2' y1='58' x2='14' y2='52'/%3E%3Cline x1='2' y1='22' x2='14' y2='28'/%3E%3Cline x1='40' y1='14' x2='66' y2='28'/%3E%3Cline x1='66' y1='28' x2='66' y2='52'/%3E%3Cline x1='66' y1='52' x2='40' y2='66'/%3E%3Cline x1='40' y1='66' x2='14' y2='52'/%3E%3Cline x1='14' y1='52' x2='14' y2='28'/%3E%3Cline x1='14' y1='28' x2='40' y2='14'/%3E%3Ccircle cx='40' cy='40' r='8'/%3E%3Ccircle cx='40' cy='40' r='3' fill='%23a78bfa'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.dark .bg-islamic-pattern::before {
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%23f59e0b' stroke-width='0.7'%3E%3Cpolygon points='40,2 78,22 78,58 40,78 2,58 2,22'/%3E%3Cpolygon points='40,14 66,28 66,52 40,66 14,52 14,28'/%3E%3Cline x1='40' y1='2' x2='40' y2='14'/%3E%3Cline x1='78' y1='22' x2='66' y2='28'/%3E%3Cline x1='78' y1='58' x2='66' y2='52'/%3E%3Cline x1='40' y1='78' x2='40' y2='66'/%3E%3Cline x1='2' y1='58' x2='14' y2='52'/%3E%3Cline x1='2' y1='22' x2='14' y2='28'/%3E%3Cline x1='40' y1='14' x2='66' y2='28'/%3E%3Cline x1='66' y1='28' x2='66' y2='52'/%3E%3Cline x1='66' y1='52' x2='40' y2='66'/%3E%3Cline x1='40' y1='66' x2='14' y2='52'/%3E%3Cline x1='14' y1='52' x2='14' y2='28'/%3E%3Cline x1='14' y1='28' x2='40' y2='14'/%3E%3Ccircle cx='40' cy='40' r='8'/%3E%3Ccircle cx='40' cy='40' r='3' fill='%23f59e0b'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* 3D tilt styles for JS integration */
+.tilt-card-dewasa {
+  transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
+  transform-style: preserve-3d;
+}
+
+.tilt-card-anak {
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-style: preserve-3d;
+}
+
+/* Kids theme overrides when active */
+.theme-kids {
+  --background: #fffbef;
+  --card: #ffffff;
+  --border: rgba(251, 146, 60, 0.3);
+  --primary: var(--kids-primary);
+  --secondary: var(--kids-secondary);
+  --accent: var(--kids-accent);
+}
+
+.theme-kids.dark {
+  --background: #171109;
+  --card: #251c11;
+  --border: rgba(251, 146, 60, 0.2);
+  --primary: var(--kids-primary);
+  --secondary: var(--kids-secondary);
+  --accent: var(--kids-accent);
+}
+
+/* Gloss Reflection overlay */
+.gloss-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
+  pointer-events: none;
+  z-index: 5;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+.tilt-card-dewasa:hover .gloss-overlay {
+  opacity: 1;
+}
+
+/* Wave and Fun lines decoration for Kids Mode */
+.kids-doodle {
+  position: relative; /* Menjadikan posisi relatif agar elemen ::before dapat diposisikan absolut terhadap kontainer ini. */
+}
+.kids-doodle::before {
+  content: ""; /* Menyediakan konten kosong untuk elemen dekorasi semu. */
+  position: absolute; /* Diposisikan absolut menutupi seluruh kontainer. */
+  inset: 0; /* Mengatur jarak pilar kiri, kanan, atas, bawah sebesar 0px. */
+  background-image: radial-gradient(var(--primary) 1px, transparent 1px); /* Menggambar pola bintik-bintik oranye radial. */
+  background-size: 16px 16px; /* Mengatur skala pengulangan pola bintik-bintik. */
+  opacity: 0.12; /* Memberikan tingkat transparansi tipis agar pola menyatu lembut di latar belakang. */
+  pointer-events: none; /* Mencegah elemen semu menangkap klik mouse agar tidak mengganggu klik anak asli. */
+  z-index: 0; /* Menaruh dekorasi di lapisan paling belakang. */
+  border-radius: inherit; /* Menyesuaikan lengkungan sudut mengikuti induknya. */
 }
